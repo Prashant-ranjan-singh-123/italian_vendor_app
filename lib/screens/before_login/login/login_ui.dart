@@ -12,6 +12,7 @@ class LoginUi extends StatefulWidget {
 }
 
 class _LoginUiState extends State<LoginUi> {
+
   late LoginCubit cubit;
 
   @override
@@ -219,7 +220,7 @@ class _LoginUiState extends State<LoginUi> {
               height: 0,
             ),
             recognizer: TapGestureRecognizer()..onTap = (){
-              print('Sign up Screen');
+              cubit.regester(context: context);
             }
           ),
         ],

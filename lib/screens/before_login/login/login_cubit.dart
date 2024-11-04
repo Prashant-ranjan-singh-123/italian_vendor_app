@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:italian_vendor_app/screens/after_login/first_page/first_page_cubit.dart';
 import 'package:italian_vendor_app/screens/after_login/first_page/first_page_ui.dart';
+import 'package:italian_vendor_app/screens/before_login/regester/regester_cubit.dart';
+import 'package:italian_vendor_app/screens/before_login/regester/regester_ui.dart';
 import 'package:italian_vendor_app/services/shared_preferences/shared_preference_logic.dart';
 import 'package:italian_vendor_app/utils/app_dialog.dart';
 
@@ -13,6 +15,7 @@ part 'login_state.dart';
 class LoginCubit extends Cubit<LoginState> {
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
+
   LoginCubit() : super(LoginInitial());
 
   void login({required BuildContext context}) {
@@ -41,7 +44,15 @@ class LoginCubit extends Cubit<LoginState> {
     }
   }
 
-  void dispose(){
+  void regester({required BuildContext context}) {
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
+        BlocProvider(
+          create: (context) => RegesterCubit(),
+          child: RegesterUi(),
+        )));
+  }
+
+  void dispose() {
     email.dispose();
     password.dispose();
   }
