@@ -1,7 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:italian_vendor_app/main.dart';
 import 'package:italian_vendor_app/screens/before_login/login/login_cubit.dart';
 
 class LoginUi extends StatefulWidget {
@@ -12,7 +11,6 @@ class LoginUi extends StatefulWidget {
 }
 
 class _LoginUiState extends State<LoginUi> {
-
   late LoginCubit cubit;
 
   @override
@@ -186,7 +184,7 @@ class _LoginUiState extends State<LoginUi> {
     );
   }
 
-  Widget _sign_up(){
+  Widget _sign_up() {
     return Text.rich(
       TextSpan(
         children: [
@@ -211,18 +209,18 @@ class _LoginUiState extends State<LoginUi> {
             ),
           ),
           TextSpan(
-            text: 'Sign Up',
-            style: TextStyle(
-              color: Color(0xFFF8C214),
-              fontSize: 14,
-              fontFamily: 'BR Firma',
-              fontWeight: FontWeight.w700,
-              height: 0,
-            ),
-            recognizer: TapGestureRecognizer()..onTap = (){
-              cubit.regester(context: context);
-            }
-          ),
+              text: 'Sign Up',
+              style: TextStyle(
+                color: Color(0xFFF8C214),
+                fontSize: 14,
+                fontFamily: 'BR Firma',
+                fontWeight: FontWeight.w700,
+                height: 0,
+              ),
+              recognizer: TapGestureRecognizer()
+                ..onTap = () {
+                  cubit.regester(context: context);
+                }),
         ],
       ),
     );
